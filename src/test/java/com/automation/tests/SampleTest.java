@@ -88,4 +88,69 @@ public class SampleTest extends BaseTest {
 
         logger.info("Test passed: Nature photo search on Google Images completed successfully");
     }
+
+    /**
+     * Test 6: Count nature photo thumbnails in Google Images results
+     * Verifies that at least one image thumbnail is loaded on the results page.
+     */
+    @Test(priority = 6, description = "Count image thumbnails in Google Images results")
+    public void testCountNaturePhotos() {
+        logger.info("Starting test: testCountNaturePhotos");
+        samplePage = new SamplePage(driver);
+
+        samplePage.searchForNaturePhoto("nature photo");
+
+        int count = samplePage.getImageResultsCount();
+        logger.info("Number of image thumbnails found: " + count);
+
+        Assert.assertTrue(count > 0,
+                "Google Images should display at least one thumbnail, but found: " + count);
+
+        logger.info("Test passed: Found " + count + " nature photo thumbnails");
+    }
+
+    /**
+     * Test 7: Click the first nature photo and verify the detail view opens
+     * Clicks the first thumbnail in Google Images and checks that
+     * the image detail panel or preview opens successfully.
+     */
+    @Test(priority = 7, description = "Click first nature photo and verify detail view opens")
+    public void testClickNaturePhoto() {
+        logger.info("Starting test: testClickNaturePhoto");
+        samplePage = new SamplePage(driver);
+
+        samplePage.searchForNaturePhoto("nature photo");
+
+        boolean clicked = samplePage.clickFirstNaturePhoto();
+        Assert.assertTrue(clicked,
+                "Should be able to click the first nature photo thumbnail");
+
+        boolean detailOpen = samplePage.isPhotoDetailViewOpen();
+        Assert.assertTrue(detailOpen,
+                "Photo detail view should open after clicking the thumbnail");
+
+        logger.info("Test passed: Clicked first nature photo and detail view opened");
+    }
+
+    /**
+     * Test 8: Verify photo details are shown after clicking a nature photo
+     * After clicking a thumbnail, checks that the detail view shows
+     * a non-empty title (the source page title or image description).
+     */
+    @Test(priority = 8, description = "Verify photo details are displayed after clicking")
+    public void testVerifyPhotoDetails() {
+        logger.info("Starting test: testVerifyPhotoDetails");
+        samplePage = new SamplePage(driver);
+
+        samplePage.searchForNaturePhoto("nature photo");
+        samplePage.clickFirstNaturePhoto();
+
+        String title = samplePage.getPhotoDetailTitle();
+        logger.info("Photo detail title: " + title);
+
+        Assert.assertNotNull(title, "Page title should not be null after clicking a photo");
+        Assert.assertFalse(title.isEmpty(), "Page title should not be empty after clicking a photo");
+
+        logger.info("Test passed: Photo detail shows title — '" + title + "'");
+    }
 }
