@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
@@ -14,24 +15,18 @@ public class SamplePage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(SamplePage.class);
 
-    // Locators
     @FindBy(name = "q")
     private WebElement searchBox;
 
     @FindBy(xpath = "//input[@value='Google Search']")
     private WebElement googleSearchButton;
 
-    /**
-     * Constructor
-     * @param driver WebDriver instance
-     */
     public SamplePage(WebDriver driver) {
         super(driver);
     }
 
     /**
-     * Search for a keyword using the Google Search button
-     * @param keyword Keyword to search
+     * Search for a keyword using the Google Search button.
      */
     public void searchKeyword(String keyword) {
         logger.info("Searching for keyword: " + keyword);
@@ -41,32 +36,46 @@ public class SamplePage extends BasePage {
 
     /**
      * Navigate directly to Google Images search for the given keyword.
-     * Using URL navigation is the most reliable way to reach image results
-     * without depending on fragile UI elements that change with Google's layout.
-     * @param keyword Keyword to search on Google Images
+     *
+     * Google now uses udm=2 for image search (replaced the old tbm=isch).
+     * We also re-apply the webdriver flag patch after navigation so the
+     * session keeps its non-bot identity across page loads.
      */
     public void searchForNaturePhoto(String keyword) {
-        logger.info("Navigating to Google Images search for: " + keyword);
-        String encodedKeyword = keyword.trim().replace(" ", "+");
-        String imageSearchUrl = "https://www.google.com/search?q=" + encodedKeyword + "&tbm=isch";
-        navigateToUrl(imageSearchUrl);
+        logger.info("Opening Google Images search for: " + keyword);
+        String encoded = keyword.trim().replace(" ", "+");
+        String url = "https://www.google.com/search?q=" + encoded + "&udm=2";
+        navigateToUrl(url);
+
+        // Re-apply the anti-bot patch after each navigation
+        try {
+            ((JavascriptExecutor) driver).executeScript(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
+        } catch (Exception ignored) {
+        }
     }
 
     /**
-     * Verify the current page is a Google Images results page.
-     * Checks the URL contains tbm=isch and the page title is not empty.
-     * @return true if on a Google Images results page
+     * Check whether Google Images results are currently displayed.
+     *
+     * Accepts both udm=2 (current Google Images) and tbm=isch (legacy).
+     * Returns false if Google has redirected to its /sorry/ bot-check page.
      */
     public boolean isImageResultsDisplayed() {
         logger.info("Checking if Google Images results are displayed");
         try {
             String currentUrl = driver.getCurrentUrl();
             String pageTitle  = driver.getTitle();
-            logger.info("URL: " + currentUrl);
-            logger.info("Title: " + pageTitle);
-            boolean onImagesPage = currentUrl.contains("tbm=isch");
-            boolean pageLoaded   = pageTitle != null && !pageTitle.isEmpty();
-            return onImagesPage && pageLoaded;
+            logger.info("URL   : " + currentUrl);
+            logger.info("Title : " + pageTitle);
+
+            boolean notBlocked    = !currentUrl.contains("/sorry/");
+            boolean onImagesPage  = currentUrl.contains("udm=2") || currentUrl.contains("tbm=isch");
+            boolean pageLoaded    = pageTitle != null && !pageTitle.isEmpty();
+
+            logger.info("notBlocked=" + notBlocked + "  onImagesPage=" + onImagesPage
+                    + "  pageLoaded=" + pageLoaded);
+            return notBlocked && onImagesPage && pageLoaded;
         } catch (Exception e) {
             logger.error("Image results check failed: " + e.getMessage());
             return false;
@@ -74,8 +83,7 @@ public class SamplePage extends BasePage {
     }
 
     /**
-     * Get search box placeholder
-     * @return Placeholder text
+     * Get search box placeholder text.
      */
     public String getSearchBoxPlaceholder() {
         logger.info("Getting search box placeholder");
@@ -83,8 +91,7 @@ public class SamplePage extends BasePage {
     }
 
     /**
-     * Verify search box is visible
-     * @return true if visible, false otherwise
+     * Verify the search box is visible on the page.
      */
     public boolean isSearchBoxVisible() {
         logger.info("Checking if search box is visible");
