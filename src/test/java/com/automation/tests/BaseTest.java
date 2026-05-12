@@ -15,6 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import com.automation.utils.ConfigReader;
+import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
@@ -75,9 +76,21 @@ public class BaseTest {
         logger.info("WebDriver setup complete — browser is open");
     }
 
-    /** Runs before EACH test — navigates back to the base URL so every test starts fresh. */
+    /**
+     * Runs before EACH test.
+     * Tests 1-5 get a fresh navigation to the base URL.
+     * Tests 6-8 continue directly from where the previous image test left off —
+     * they share the same Google Images results page opened by test 5.
+     */
     @BeforeMethod(alwaysRun = true)
-    public void navigateToBaseUrl() {
+    public void navigateToBaseUrl(Method method) {
+        String testName = method.getName();
+        if (testName.equals("testCountNaturePhotos")
+                || testName.equals("testClickSunsetPhoto")
+                || testName.equals("testVerifyPhotoDetails")) {
+            logger.info("Image flow — skipping base URL navigation for: " + testName);
+            return;
+        }
         driver.navigate().to(ConfigReader.getBaseUrl());
         logger.info("Navigated to base URL: " + ConfigReader.getBaseUrl());
     }

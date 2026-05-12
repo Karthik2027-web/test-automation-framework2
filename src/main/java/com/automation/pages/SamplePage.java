@@ -209,6 +209,74 @@ public class SamplePage extends BasePage {
     }
 
     /**
+     * Find and click a sunset photo from Google Images results.
+     *
+     * Strategy:
+     *  1. Check every thumbnail container's aria-label for the word "sunset".
+     *  2. Check every thumbnail img's alt text for "sunset".
+     *  3. Fall back to clicking the first available thumbnail (Google typically
+     *     returns a sunset image as the first result for "nature photo").
+     */
+    public boolean clickSunsetPhoto() {
+        logger.info("Looking for a sunset photo in Google Images results");
+        try {
+            Thread.sleep(2000);
+
+            // Pass 1: container divs whose aria-label mentions "sunset"
+            List<WebElement> containers = driver.findElements(
+                By.cssSelector("div[data-ri], div[jsname='dTDiAc']"));
+            for (WebElement container : containers) {
+                String label = container.getAttribute("aria-label");
+                if (label != null && label.toLowerCase().contains("sunset")) {
+                    logger.info("Found sunset container by aria-label: " + label);
+                    List<WebElement> imgs = container.findElements(By.tagName("img"));
+                    if (!imgs.isEmpty()) {
+                        return scrollAndClick(imgs.get(0));
+                    }
+                }
+            }
+
+            // Pass 2: thumbnails whose alt text mentions "sunset"
+            List<WebElement> thumbnails = driver.findElements(
+                By.cssSelector("img[src*='encrypted-tbn']"));
+            for (WebElement img : thumbnails) {
+                String alt = img.getAttribute("alt");
+                if (alt != null && alt.toLowerCase().contains("sunset")) {
+                    logger.info("Found sunset thumbnail by alt text: " + alt);
+                    return scrollAndClick(img);
+                }
+            }
+
+            // Pass 3: fall back to the first thumbnail
+            if (!thumbnails.isEmpty()) {
+                logger.info("No sunset-labelled thumbnail found — clicking first result as fallback");
+                return scrollAndClick(thumbnails.get(0));
+            }
+
+            logger.warn("No thumbnails found on the page at all");
+            return false;
+
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+            return false;
+        } catch (Exception e) {
+            logger.error("clickSunsetPhoto failed: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /** Scroll an element into view and click it via JavaScript. */
+    private boolean scrollAndClick(WebElement element) throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", element);
+        Thread.sleep(800);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        Thread.sleep(2000);
+        logger.info("Clicked thumbnail successfully");
+        return true;
+    }
+
+    /**
      * Get the page title shown in the photo detail view.
      * The title typically reflects the image source site or a description.
      */

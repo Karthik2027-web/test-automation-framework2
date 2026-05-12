@@ -90,15 +90,15 @@ public class SampleTest extends BaseTest {
     }
 
     /**
-     * Test 6: Count nature photo thumbnails in Google Images results
-     * Verifies that at least one image thumbnail is loaded on the results page.
+     * Test 6: Count nature photo thumbnails already on screen.
+     * Runs directly after Test 5 — no new search needed.
+     * Verifies that at least one thumbnail was loaded by Google Images.
      */
-    @Test(priority = 6, description = "Count image thumbnails in Google Images results")
+    @Test(priority = 6, dependsOnMethods = {"testSearchNaturePhoto"},
+          description = "Count image thumbnails already on Google Images results page")
     public void testCountNaturePhotos() {
         logger.info("Starting test: testCountNaturePhotos");
         samplePage = new SamplePage(driver);
-
-        samplePage.searchForNaturePhoto("nature photo");
 
         int count = samplePage.getImageResultsCount();
         logger.info("Number of image thumbnails found: " + count);
@@ -110,46 +110,42 @@ public class SampleTest extends BaseTest {
     }
 
     /**
-     * Test 7: Click the first nature photo and verify the detail view opens
-     * Clicks the first thumbnail in Google Images and checks that
-     * the image detail panel or preview opens successfully.
+     * Test 7: Select a sunset photo from the nature photo results.
+     * Continues from the same results page — no new search.
+     * Looks for a thumbnail labelled "sunset"; falls back to the first result.
      */
-    @Test(priority = 7, description = "Click first nature photo and verify detail view opens")
-    public void testClickNaturePhoto() {
-        logger.info("Starting test: testClickNaturePhoto");
+    @Test(priority = 7, dependsOnMethods = {"testCountNaturePhotos"},
+          description = "Select a sunset photo from nature photo results and verify detail view opens")
+    public void testClickSunsetPhoto() {
+        logger.info("Starting test: testClickSunsetPhoto");
         samplePage = new SamplePage(driver);
 
-        samplePage.searchForNaturePhoto("nature photo");
-
-        boolean clicked = samplePage.clickFirstNaturePhoto();
+        boolean clicked = samplePage.clickSunsetPhoto();
         Assert.assertTrue(clicked,
-                "Should be able to click the first nature photo thumbnail");
+                "Should be able to select a sunset photo from the nature photo results");
 
         boolean detailOpen = samplePage.isPhotoDetailViewOpen();
         Assert.assertTrue(detailOpen,
-                "Photo detail view should open after clicking the thumbnail");
+                "Photo detail view should open after selecting the sunset photo");
 
-        logger.info("Test passed: Clicked first nature photo and detail view opened");
+        logger.info("Test passed: Sunset photo selected and detail view opened");
     }
 
     /**
-     * Test 8: Verify photo details are shown after clicking a nature photo
-     * After clicking a thumbnail, checks that the detail view shows
-     * a non-empty title (the source page title or image description).
+     * Test 8: Verify the photo detail title after selecting a sunset photo.
+     * Continues from the detail view opened by Test 7 — no new action needed.
      */
-    @Test(priority = 8, description = "Verify photo details are displayed after clicking")
+    @Test(priority = 8, dependsOnMethods = {"testClickSunsetPhoto"},
+          description = "Verify photo details are displayed after selecting a sunset photo")
     public void testVerifyPhotoDetails() {
         logger.info("Starting test: testVerifyPhotoDetails");
         samplePage = new SamplePage(driver);
 
-        samplePage.searchForNaturePhoto("nature photo");
-        samplePage.clickFirstNaturePhoto();
-
         String title = samplePage.getPhotoDetailTitle();
         logger.info("Photo detail title: " + title);
 
-        Assert.assertNotNull(title, "Page title should not be null after clicking a photo");
-        Assert.assertFalse(title.isEmpty(), "Page title should not be empty after clicking a photo");
+        Assert.assertNotNull(title, "Page title should not be null after selecting a photo");
+        Assert.assertFalse(title.isEmpty(), "Page title should not be empty after selecting a photo");
 
         logger.info("Test passed: Photo detail shows title — '" + title + "'");
     }
