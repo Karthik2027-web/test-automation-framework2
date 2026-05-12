@@ -1,0 +1,167 @@
+17:29:19.746 [main] INFO  org.testng.internal.Utils - [XmlSuite] [WARN] 'parallel' value 'false' is no longer valid, defaulting to 'none'.
+17:29:19.922 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:29:20.326 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:29:20.347 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:29:21.847 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:29:22.673 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:29:22.677 [main] INFO  com.automation.tests.SampleTest - Starting test: testGoogleHomePage
+17:29:22.735 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+17:29:22.736 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+17:29:22.812 [main] INFO  com.automation.tests.SampleTest - Test passed: Google homepage loaded successfully
+17:29:22.814 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:29:22.951 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:29:22.955 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:29:22.970 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:29:22.978 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:29:23.705 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:29:24.562 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:29:24.563 [main] INFO  com.automation.tests.SampleTest - Starting test: testPageTitle
+17:29:24.563 [main] INFO  com.automation.pages.BasePage - Getting page title
+17:29:24.580 [main] INFO  com.automation.tests.SampleTest - Test passed: Page title is correct
+17:29:24.587 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:29:24.726 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:29:24.727 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:29:24.743 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:29:24.750 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:29:25.486 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:29:25.828 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:29:25.835 [main] INFO  com.automation.tests.SampleTest - Starting test: testCurrentURL
+17:29:25.838 [main] INFO  com.automation.pages.BasePage - Getting current URL
+17:29:26.726 [main] INFO  com.automation.tests.SampleTest - Test passed: Current URL is correct
+17:29:26.728 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:29:26.946 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:29:26.950 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:29:26.973 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:29:26.986 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:29:27.940 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:29:29.061 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:29:29.063 [main] INFO  com.automation.tests.SampleTest - Starting test: testSearchBox
+17:29:29.063 [main] INFO  com.automation.pages.SamplePage - Getting search box placeholder
+17:29:29.188 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:29:29.421 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:30:17.304 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:30:17.649 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:30:17.673 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:30:18.738 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:30:19.554 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:30:19.559 [main] INFO  com.automation.tests.SampleTest - Starting test: testGoogleHomePage
+17:30:19.597 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+17:30:19.598 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+17:30:19.694 [main] INFO  com.automation.tests.SampleTest - Test passed: Google homepage loaded successfully
+17:30:19.700 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:30:19.871 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:30:19.873 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:30:19.886 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:30:19.892 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:30:20.581 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:30:21.472 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:30:21.473 [main] INFO  com.automation.tests.SampleTest - Starting test: testPageTitle
+17:30:21.473 [main] INFO  com.automation.pages.BasePage - Getting page title
+17:30:21.489 [main] INFO  com.automation.tests.SampleTest - Test passed: Page title is correct
+17:30:21.490 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:30:21.687 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:30:21.688 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:30:21.702 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:30:21.709 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:30:22.552 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:30:23.659 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:30:23.660 [main] INFO  com.automation.tests.SampleTest - Starting test: testCurrentURL
+17:30:23.661 [main] INFO  com.automation.pages.BasePage - Getting current URL
+17:30:23.699 [main] INFO  com.automation.tests.SampleTest - Test passed: Current URL is correct
+17:30:23.702 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:30:23.949 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:30:23.951 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:30:23.973 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:30:23.986 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:30:24.820 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:30:25.777 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:30:25.788 [main] INFO  com.automation.tests.SampleTest - Starting test: testSearchBox
+17:30:25.790 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+17:30:25.790 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+17:30:26.036 [main] INFO  com.automation.tests.SampleTest - Test passed: Search box is present on Google homepage
+17:30:26.038 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:30:26.317 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:31:44.150 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:31:44.464 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:31:44.482 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:31:45.532 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:31:46.371 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:31:46.375 [main] INFO  com.automation.tests.SampleTest - Starting test: testGoogleHomePage
+17:31:46.419 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+17:31:46.420 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+17:31:46.515 [main] INFO  com.automation.tests.SampleTest - Test passed: Google homepage loaded successfully
+17:31:46.518 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:31:46.653 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:31:46.655 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:31:46.667 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:31:46.672 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:31:47.279 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:31:48.170 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:31:48.171 [main] INFO  com.automation.tests.SampleTest - Starting test: testPageTitle
+17:31:48.171 [main] INFO  com.automation.pages.BasePage - Getting page title
+17:31:48.186 [main] INFO  com.automation.tests.SampleTest - Test passed: Page title is correct
+17:31:48.189 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:31:48.339 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:31:48.340 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:31:48.352 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:31:48.360 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:31:48.991 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:31:49.753 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:31:49.754 [main] INFO  com.automation.tests.SampleTest - Starting test: testCurrentURL
+17:31:49.755 [main] INFO  com.automation.pages.BasePage - Getting current URL
+17:31:49.772 [main] INFO  com.automation.tests.SampleTest - Test passed: Current URL is correct
+17:31:49.774 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:31:49.922 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+17:31:49.923 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+17:31:49.932 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+17:31:49.936 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+17:31:50.602 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+17:31:51.426 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+17:31:51.427 [main] INFO  com.automation.tests.SampleTest - Starting test: testSearchBox
+17:31:51.430 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+17:31:51.430 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+17:31:51.520 [main] INFO  com.automation.tests.SampleTest - Test passed: Search box is present on Google homepage
+17:31:51.521 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+17:31:51.645 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+18:39:09.565 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+18:39:10.194 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+18:39:10.208 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+18:39:11.147 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+18:39:12.115 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+18:39:12.118 [main] INFO  com.automation.tests.SampleTest - Starting test: testGoogleHomePage
+18:39:12.153 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+18:39:12.154 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+18:39:12.233 [main] INFO  com.automation.tests.SampleTest - Test passed: Google homepage loaded successfully
+18:39:12.236 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+18:39:12.405 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+18:39:12.407 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+18:39:12.417 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+18:39:12.426 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+18:39:13.082 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+18:39:13.946 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+18:39:13.947 [main] INFO  com.automation.tests.SampleTest - Starting test: testPageTitle
+18:39:13.947 [main] INFO  com.automation.pages.BasePage - Getting page title
+18:39:13.960 [main] INFO  com.automation.tests.SampleTest - Test passed: Page title is correct
+18:39:13.962 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+18:39:14.169 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+18:39:14.170 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+18:39:14.179 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+18:39:14.183 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+18:39:14.787 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+18:39:15.742 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+18:39:15.744 [main] INFO  com.automation.tests.SampleTest - Starting test: testCurrentURL
+18:39:15.745 [main] INFO  com.automation.pages.BasePage - Getting current URL
+18:39:15.755 [main] INFO  com.automation.tests.SampleTest - Test passed: Current URL is correct
+18:39:15.759 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+18:39:15.896 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully
+18:39:15.897 [main] INFO  com.automation.tests.BaseTest - Setting up WebDriver...
+18:39:15.905 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 147.0.7727.117 (resolved driver for Chrome 147)
+18:39:15.910 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\LT-350\.cache\selenium\chromedriver\win64\147.0.7727.117\chromedriver.exe
+18:39:16.518 [main] INFO  com.automation.tests.BaseTest - Chrome driver initialized
+18:39:17.778 [main] INFO  com.automation.tests.BaseTest - Navigated to: https://www.google.com
+18:39:17.779 [main] INFO  com.automation.tests.SampleTest - Starting test: testSearchBox
+18:39:17.780 [main] INFO  com.automation.pages.SamplePage - Checking if search box is visible
+18:39:17.780 [main] INFO  com.automation.pages.BasePage - Waiting for element to be visible
+18:39:17.905 [main] INFO  com.automation.tests.SampleTest - Test passed: Search box is present on Google homepage
+18:39:17.906 [main] INFO  com.automation.tests.BaseTest - Closing WebDriver...
+18:39:18.039 [main] INFO  com.automation.tests.BaseTest - WebDriver closed successfully

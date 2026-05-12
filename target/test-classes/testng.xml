@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Automation Framework Suite" verbose="2" parallel="none">
+    <test name="Automation Tests">
+        <classes>
+            <class name="com.automation.tests.SampleTest"/>
+        </classes>
+    </test>
+</suite>
