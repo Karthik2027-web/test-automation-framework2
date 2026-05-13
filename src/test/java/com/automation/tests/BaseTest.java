@@ -108,6 +108,10 @@ public class BaseTest {
     /**
      * Builds ChromeOptions with anti-bot-detection flags so Google does not
      * redirect the session to the /sorry/ captcha page.
+     *
+     * Headless mode is enabled automatically when:
+     *   - the JVM property  -Dheadless=true  is passed, OR
+     *   - the CI environment variable is set (GitHub Actions sets this by default)
      */
     private ChromeOptions buildChromeOptions() {
         ChromeOptions options = new ChromeOptions();
@@ -115,13 +119,20 @@ public class BaseTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
-        // Tell Chrome not to expose the automation flag in the browser UI or JS
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.setAcceptInsecureCerts(true);
-        // Remove "Chrome is being controlled by automated software" banner
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("useAutomationExtension", false);
-        // Suppress notification prompts
+
+        // Headless mode: activated by -Dheadless=true or the CI environment variable
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"))
+                || System.getenv("CI") != null;
+        if (headless) {
+            options.addArguments("--headless=new");
+            options.addArguments("--window-size=1920,1080");
+            logger.info("Running in HEADLESS mode");
+        }
+
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
         options.setExperimentalOption("prefs", prefs);
